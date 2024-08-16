@@ -1,75 +1,35 @@
-# Nuxt UI Minimal Starter
+# Dev Tools
 
-Look at [Nuxt docs](https://nuxt.com/docs/getting-started/introduction) and [Nuxt UI docs](https://ui.nuxt.com) to learn more.
+A collection of essential development tools built with Nuxt 3.
 
-## Setup
+## Overview
 
-Make sure to install the dependencies:
+`dev-tools` is a toolkit designed to streamline your development workflow. Currently, it includes a set of small utilities that aim to enhance productivity and simplify common tasks.
+
+## Installation
+
+To get started with `dev-tools`, clone the repository and install the dependencies using `pnpm`. Other package managers may cause issues.
 
 ```bash
-# npm
-npm install
-
-# pnpm
+git clone <repository-url>
+cd dev-tools
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+To run the development server:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+pnpm dev -o
 ```
 
-## Production
+## Contributions
 
-Build the application for production:
+The toolset is still evolving, and your feedback is invaluable. If you have suggestions for additional tools or improvements, please open an issue or submit a pull request.
 
-```bash
-# npm
-npm run build
+## License
 
-# pnpm
-pnpm run build
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-# yarn
-yarn build
+## Contact
 
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+For any questions or support, feel free to reach out via Issues.

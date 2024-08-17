@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const links = ref([{ label: "UUID", to: "/generators/uuid" }]);
+definePageMeta({ redirect: "/generators/uuid" });
 </script>
 
 <template>

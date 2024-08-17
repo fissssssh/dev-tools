@@ -1,36 +1,40 @@
 <script setup lang="ts">
-import { TextHexConverter } from "../../utils/converter";
-
+import { Convert } from "~/utils/convert";
+const toast = useToastEx();
 const input = ref("");
 const output = ref("");
-const converter = ref(new TextHexConverter());
+
 function formatHexInput() {
-  let value = input.value.replace(/[^a-zA-Z0-9]/g, "");
+  let value = input.value.replace(/[^a-fA-F0-9]/g, "");
   value = value.replace(/(.{2})(?=.)/g, "$1 ");
   input.value = value;
 }
 
 function convert(reverse: boolean) {
-  if (reverse) {
-    input.value = converter.value.reverse(output.value);
-    formatHexInput();
-  } else {
-    const hex = input.value.replace(/[^a-zA-Z0-9]/g, "");
-    output.value = converter.value.convert(hex);
+  try {
+    if (reverse) {
+      input.value = Convert.ToHexString(new TextEncoder().encode(output.value));
+    } else {
+      let hex = input.value.replace(/[^a-fA-F0-9]/g, "");
+      output.value = new TextDecoder().decode(Convert.FromHexString(hex));
+    }
+  } catch (error: any) {
+    toast.error(error.message);
   }
 }
 </script>
 
 <template>
-  <div class="flex items-center gap-4 flex-col">
+  <div class="flex items-start gap-2 flex-col">
     <UTextarea
       :rows="10"
       v-model="input"
       class="flex-1 w-full"
       textarea-class="uppercase"
+      spellcheck="false"
       @update:model-value="formatHexInput"
     />
-    <div class="flex flex-row justify-center items-center gap-4">
+    <div class="flex flex-row gap-2">
       <UButton
         icon="i-heroicons:arrow-long-down-20-solid"
         @click="convert(false)"
@@ -41,6 +45,11 @@ function convert(reverse: boolean) {
         >Reverse</UButton
       >
     </div>
-    <UTextarea :rows="10" v-model="output" class="flex-1 w-full" />
+    <UTextarea
+      :rows="10"
+      v-model="output"
+      class="flex-1 w-full"
+      spellcheck="false"
+    />
   </div>
 </template>

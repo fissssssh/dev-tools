@@ -8,7 +8,11 @@ const isDark = computed({
     colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
   },
 });
-const route = useRoute();
+const navs = ref([
+  { label: "Home", to: "/" },
+  { label: "Converter", to: "/converters" },
+  { label: "Generator", to: "/generators" },
+]);
 </script>
 <template>
   <header class="border-b h-16 sticky top-0 z-50 backdrop-blur bg-opacity-75">
@@ -19,30 +23,13 @@ const route = useRoute();
         >
       </div>
       <ul class="flex items-center gap-x-8">
-        <li>
+        <li v-for="nav in navs">
           <NuxtLink
             class="text-sm font-semibold"
-            to="/"
+            :to="nav.to"
             active-class="text-primary"
-            >Home</NuxtLink
+            >{{ nav.label }}</NuxtLink
           >
-        </li>
-        <li>
-          <UDropdown
-            :items="[[{ label: 'Hex', to: '/converters/hex' }]]"
-            mode="hover"
-            :popper="{ placement: 'bottom-start' }"
-          >
-            <UButton
-              class="font-semibold"
-              :color="
-                route.path.startsWith('/converters') ? 'primary' : 'white'
-              "
-              label="Converters"
-              variant="ghost"
-              trailing-icon="i-heroicons-chevron-down-20-solid"
-            />
-          </UDropdown>
         </li>
       </ul>
       <div class="flex-1 flex items-center justify-end">
@@ -57,6 +44,13 @@ const route = useRoute();
             aria-label="theme-toggle"
           />
         </ColorScheme>
+        <UButton
+          icon="i-grommet-icons:github"
+          variant="ghost"
+          color="white"
+          to="https://github.com/fissssssh/dev-tools"
+          target="_blank"
+        ></UButton>
       </div>
     </UContainer>
   </header>

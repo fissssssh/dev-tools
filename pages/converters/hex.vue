@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Convert } from "~/utils/convert";
+const { t } = useI18n();
 const toast = useToastEx();
 const input = ref("");
 const output = ref("");
@@ -32,18 +33,19 @@ function convert(reverse: boolean) {
       class="flex-1 w-full"
       textarea-class="uppercase"
       spellcheck="false"
+      :placeholder="t('pages.converters.hex.input.placeholder')"
       @update:model-value="formatHexInput"
     />
     <div class="flex flex-row gap-2">
       <UButton
         icon="i-heroicons:arrow-long-down-20-solid"
         @click="convert(false)"
-        :trailing="true"
-        >Convert</UButton
       >
-      <UButton icon="i-heroicons:arrow-long-up-20-solid" @click="convert(true)"
-        >Reverse</UButton
-      >
+        {{ t("common.convert") }}
+      </UButton>
+      <UButton icon="i-heroicons:arrow-long-up-20-solid" @click="convert(true)">
+        {{ t("common.reverse") }}
+      </UButton>
     </div>
     <UTextarea
       :rows="10"

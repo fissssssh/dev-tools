@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Convert } from "~/utils/convert";
-
+const { t } = useI18n();
 const input = ref("");
 const output = ref("");
 const isBase64URL = ref(false);
@@ -35,17 +35,15 @@ function encode() {
       v-model="input"
       class="flex-1 w-full"
       spellcheck="false"
+      :placeholder="t('pages.converters.base64.input.placeholder')"
     />
     <div class="flex flex-row justify-center items-center gap-2">
-      <UButton
-        icon="i-heroicons:arrow-long-down-20-solid"
-        @click="encode"
-        :trailing="true"
-        >Encode</UButton
-      >
-      <UButton icon="i-heroicons:arrow-long-up-20-solid" @click="decode"
-        >Decode</UButton
-      >
+      <UButton icon="i-heroicons:arrow-long-down-20-solid" @click="encode">
+        {{ t("common.encode") }}
+      </UButton>
+      <UButton icon="i-heroicons:arrow-long-up-20-solid" @click="decode">
+        {{ t("common.decode") }}
+      </UButton>
       <UCheckbox label="Base64URL" v-model="isBase64URL" />
     </div>
     <UTextarea
@@ -53,6 +51,7 @@ function encode() {
       v-model="output"
       class="flex-1 w-full"
       spellcheck="false"
+      :placeholder="t('pages.converters.base64.output.placeholder')"
     />
   </div>
 </template>

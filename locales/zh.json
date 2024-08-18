@@ -1,0 +1,42 @@
+{
+  "pages": {
+    "home": {
+      "name": "首页",
+      "app": {
+        "name": "Dev Tools",
+        "description": "一组基础开发工具，旨在简化工作流程并提高生产力。"
+      },
+      "converter": {
+        "name": "转换器",
+        "description": "转换器是用于将数据从一种格式转换为另一种格式的工具。"
+      },
+      "generator": {
+        "name": "生产器",
+        "description": "生成器是用来生成新数据的工具。"
+      }
+    },
+    "converters": {
+      "name": "转换器",
+      "hex": {
+        "name": "十六进制",
+        "input": { "placeholder": "输入十六进制字符串..." }
+      },
+      "base64": {
+        "name": "Base64",
+        "input": { "placeholder": "输入点什么..." },
+        "output": { "placeholder": "输入Base64编码字符串..." }
+      }
+    },
+    "generators": {
+      "name": "生成器",
+      "uuid": { "name": "UUID" }
+    }
+  },
+  "common": {
+    "convert": "转换",
+    "reverse": "反向",
+    "encode": "编码",
+    "decode": "解码",
+    "regenerate": "重新生成"
+  }
+}

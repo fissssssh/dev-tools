@@ -1,11 +1,20 @@
 <script setup lang="ts">
-definePageMeta({
-  redirect: "/converters/hex",
-});
-const links = ref([
-  { label: "Hex", to: "/converters/hex" },
-  { label: "Base64", to: "/converters/base64" },
+const { t } = useI18n();
+const localePath = useLocalePath();
+
+const links = computed(() => [
+  { label: t("pages.converters.hex.name"), to: localePath("/converters/hex") },
+  {
+    label: t("pages.converters.base64.name"),
+    to: localePath("/converters/base64"),
+  },
 ]);
+
+const router = useRouter();
+
+onBeforeMount(() => {
+  router.replace(localePath("/converters/hex"));
+});
 </script>
 
 <template>

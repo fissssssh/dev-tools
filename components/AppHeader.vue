@@ -1,4 +1,12 @@
 <script setup lang="ts">
+const { t, locales } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
+const avaliableLocales = computed(() => [
+  locales.value.map((l) => ({
+    label: l.name!,
+    to: switchLocalePath(l.code),
+  })),
+]);
 const colorMode = useColorMode();
 const isDark = computed({
   get() {
@@ -8,31 +16,39 @@ const isDark = computed({
     colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
   },
 });
-const navs = ref([
-  { label: "Home", to: "/" },
-  { label: "Converter", to: "/converters" },
-  { label: "Generator", to: "/generators" },
+const links = ref([
+  { label: "pages.home.name", to: "/" },
+  { label: "pages.converters.name", to: "/converters" },
+  { label: "pages.generators.name", to: "/generators" },
 ]);
 </script>
 <template>
   <header class="border-b h-16 sticky top-0 z-50 backdrop-blur bg-opacity-75">
     <UContainer class="h-full flex items-center justify-between">
       <div class="flex-1 hidden md:flex items-center justify-start">
-        <NuxtLink to="/"
-          ><span class="text-2xl font-extrabold">Dev Tools</span></NuxtLink
-        >
+        <NuxtLinkLocale to="/">
+          <span class="text-2xl font-extrabold">Dev Tools</span>
+        </NuxtLinkLocale>
       </div>
       <ul class="flex items-center gap-x-8">
-        <li v-for="nav in navs">
-          <NuxtLink
+        <li v-for="l in links">
+          <NuxtLinkLocale
             class="text-sm font-semibold"
-            :to="nav.to"
+            :to="l.to"
             active-class="text-primary"
-            >{{ nav.label }}</NuxtLink
           >
+            {{ t(l.label) }}
+          </NuxtLinkLocale>
         </li>
       </ul>
       <div class="flex-1 flex items-center justify-end">
+        <UDropdown :items="avaliableLocales" mode="hover">
+          <UButton
+            icon="heroicons:language-20-solid"
+            variant="ghost"
+            color="white"
+          />
+        </UDropdown>
         <ColorScheme>
           <UButton
             :icon="

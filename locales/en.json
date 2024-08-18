@@ -1,0 +1,42 @@
+{
+  "pages": {
+    "home": {
+      "name": "Home",
+      "app": {
+        "name": "Dev Tools",
+        "description": "A collection of essential development tools to streamline your workflow and boost productivity."
+      },
+      "converter": {
+        "name": "Converter",
+        "description": "A Converter is a tool used to transform data from one form or format to another."
+      },
+      "generator": {
+        "name": "Generator",
+        "description": "A Generator is a tool used to create new data or values."
+      }
+    },
+    "converters": {
+      "name": "Converter",
+      "hex": {
+        "name": "Hex",
+        "input": { "placeholder": "Input hex string..." }
+      },
+      "base64": {
+        "name": "Base64",
+        "input": { "placeholder": "Input someting..." },
+        "output": { "placeholder": "Input base64 encoded string..." }
+      }
+    },
+    "generators": {
+      "name": "Generator",
+      "uuid": { "name": "UUID" }
+    }
+  },
+  "common": {
+    "convert": "Convert",
+    "reverse": "Reverse",
+    "encode": "Encode",
+    "decode": "Decode",
+    "regenerate": "Regenerate"
+  }
+}

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n();
 const router = useRouter();
+const route = useRoute();
 const localePath = useLocalePath();
 
 const links = ref([
@@ -11,7 +12,11 @@ const links = ref([
 ]);
 
 onBeforeMount(() => {
-  router.replace(localePath("/generators/uuid"));
+  const defaultPath = localePath("/generators");
+  
+  if(defaultPath === route.path) {
+    router.replace(localePath("/generators/uuid"));
+  }
 });
 </script>
 

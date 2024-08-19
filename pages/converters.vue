@@ -11,9 +11,14 @@ const links = computed(() => [
 ]);
 
 const router = useRouter();
+const route = useRoute();
 
 onBeforeMount(() => {
-  router.replace(localePath("/converters/hex"));
+  const defaultPath = localePath("/converters");
+  
+  if(defaultPath === route.path) {
+    router.replace(localePath("/converters/hex"));
+  }
 });
 </script>
 

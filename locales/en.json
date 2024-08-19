@@ -25,6 +25,10 @@
         "name": "Base64",
         "input": { "placeholder": "Input someting..." },
         "output": { "placeholder": "Input base64 encoded string..." }
+      },
+      "datetime": {
+        "name": "Time",
+        "input": { "placeholder": "Input datetime string..." }
       }
     },
     "generators": {

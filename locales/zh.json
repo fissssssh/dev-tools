@@ -25,6 +25,10 @@
         "name": "Base64",
         "input": { "placeholder": "输入点什么..." },
         "output": { "placeholder": "输入Base64编码字符串..." }
+      },
+      "datetime": {
+        "name": "时间",
+        "input": { "placeholder": "输入时间字符串..." }
       }
     },
     "generators": {

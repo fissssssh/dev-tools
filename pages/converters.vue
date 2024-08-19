@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const { t } = useI18n();
 const localePath = useLocalePath();
+const router = useRouter();
+const route = useRoute();
 
 const links = computed(() => [
   { label: t("pages.converters.hex.name"), to: localePath("/converters/hex") },
@@ -8,15 +10,16 @@ const links = computed(() => [
     label: t("pages.converters.base64.name"),
     to: localePath("/converters/base64"),
   },
+  {
+    label: t("pages.converters.datetime.name"),
+    to: localePath("/converters/datetime"),
+  },
 ]);
-
-const router = useRouter();
-const route = useRoute();
 
 onBeforeMount(() => {
   const defaultPath = localePath("/converters");
-  
-  if(defaultPath === route.path) {
+
+  if (defaultPath === route.path) {
     router.replace(localePath("/converters/hex"));
   }
 });

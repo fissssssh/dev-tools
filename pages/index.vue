@@ -18,6 +18,12 @@ const links = ref([
     description: "pages.home.generator.description",
     to: "/generators",
   },
+  {
+    icon: "heroicons:beaker-20-solid",
+    title: "pages.home.tester.name",
+    description: "pages.home.tester.description",
+    to: "/testers",
+  },
 ]);
 </script>
 

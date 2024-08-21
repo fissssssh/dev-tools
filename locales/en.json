@@ -13,6 +13,10 @@
       "generator": {
         "name": "Generator",
         "description": "A Generator is a tool used to create new data or values."
+      },
+      "tester": {
+        "name": "Tester",
+        "description": "A Tester is a tool used to test something."
       }
     },
     "converters": {
@@ -34,6 +38,23 @@
     "generators": {
       "name": "Generator",
       "uuid": { "name": "UUID" }
+    },
+    "testers": {
+      "name": "Tester",
+      "regex": {
+        "name": "Regex",
+        "pattern": {
+          "label": "Pattern",
+          "placeholder": "Input regular expression..."
+        },
+        "text": {
+          "label": "Text",
+          "placeholder": "Input text..."
+        },
+        "result": {
+          "label": "Result"
+        }
+      }
     }
   },
   "common": {

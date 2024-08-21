@@ -13,6 +13,10 @@
       "generator": {
         "name": "生产器",
         "description": "生成器是用来生成新数据的工具。"
+      },
+      "tester": {
+        "name": "测试器",
+        "description": "测试器是用来测试某些东西的工具。"
       }
     },
     "converters": {
@@ -34,6 +38,23 @@
     "generators": {
       "name": "生成器",
       "uuid": { "name": "UUID" }
+    },
+    "testers": {
+      "name": "测试器",
+      "regex": {
+        "name": "正则",
+        "pattern": {
+          "label": "模式",
+          "placeholder": "输入正则表达式..."
+        },
+        "text": {
+          "label": "文本",
+          "placeholder": "输入文本..."
+        },
+        "result": {
+          "label": "结果"
+        }
+      }
     }
   },
   "common": {

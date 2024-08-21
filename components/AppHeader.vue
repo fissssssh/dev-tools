@@ -17,31 +17,42 @@ const isDark = computed({
   },
 });
 const links = ref([
-  { label: "pages.home.name", to: "/" },
-  { label: "pages.converters.name", to: "/converters" },
-  { label: "pages.generators.name", to: "/generators" },
+  { label: t("pages.home.name"), to: "/" },
+  { label: t("pages.converters.name"), to: "/converters" },
+  { label: t("pages.generators.name"), to: "/generators" },
+  { label: t("pages.testers.name"), to: "/testers" },
 ]);
 </script>
 <template>
   <header class="border-b h-16 sticky top-0 z-50 backdrop-blur bg-opacity-75">
     <UContainer class="h-full flex items-center justify-between">
-      <div class="flex-1 hidden md:flex items-center justify-start">
+      <UDropdown class="md:hidden" :items="[links]">
+        <UButton
+          variant="outline"
+          color="white"
+          icon="heroicons:bars-3-solid"
+        />
+      </UDropdown>
+      <div
+        class="hidden sm:flex flex-1 items-center justify-center md:justify-start"
+      >
         <NuxtLinkLocale to="/">
           <span class="text-2xl font-extrabold">Dev Tools</span>
         </NuxtLinkLocale>
       </div>
-      <ul class="flex items-center gap-x-8">
+      <ul class="hidden md:flex items-center gap-x-8">
         <li v-for="l in links">
           <NuxtLinkLocale
             class="text-sm font-semibold"
             :to="l.to"
             active-class="text-primary"
           >
-            {{ t(l.label) }}
+            {{ l.label }}
           </NuxtLinkLocale>
         </li>
       </ul>
-      <div class="flex-1 flex items-center justify-end">
+
+      <div class="flex md:flex-1 items-center justify-end">
         <UDropdown :items="avaliableLocales" mode="hover">
           <UButton
             icon="heroicons:language-20-solid"
